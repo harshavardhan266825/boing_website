@@ -14,11 +14,10 @@ let currentPlayer = 'X';
 let boardState = ['', '', '', '', '', '', '', '', ''];
 let playerXScore = 0;
 let playerOScore = 0;
-let gameActive = false; // Initialize as false
-let timer; // Timer for each move
-const moveTimeLimit = 15; // Time limit for each move in seconds
+let gameActive = false; 
+let timer; 
+const moveTimeLimit = 15; 
 
-// Function to handle a player's move
 function handleCellClick(index) {
     if (!gameActive) {
         messageText.textContent = 'Enter player names and click "Restart Game" to begin.';
@@ -51,7 +50,7 @@ function handleCellClick(index) {
     }
 }
 
-// Function to check if a player has won
+
 function isGameWon() {
     const winPatterns = [
         [0, 1, 2], [3, 4, 5], [6, 7, 8],
@@ -68,19 +67,19 @@ function isGameWon() {
     return false;
 }
 
-// Function to start the timer
+
 function startTimer() {
     clearTimeout(timer);
     timer = setTimeout(handleTimerEnd, moveTimeLimit * 1000);
 }
 
-// Function to handle the end of the timer
+
 function handleTimerEnd() {
     if (gameActive) {
-        // Change player if the timer runs out
+        
         currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
         messageText.textContent = `Player ${currentPlayer}'s turn (Time's up!)`;
-        // Declare the other player as the winner
+        
         if (currentPlayer === 'X') {
             playerOScore++;
             messageText.textContent = `${playerONameInput.value} wins! (Player X took too long)`;
@@ -93,7 +92,7 @@ function handleTimerEnd() {
     }
 }
 
-// Function to reset the game
+
 function resetGame() {
     if (!playerXNameInput.value || !playerONameInput.value) {
         messageText.textContent = 'Please enter both player names.';
@@ -111,7 +110,7 @@ function resetGame() {
     }
 }
 
-// Function to reset the scores and player names
+
 function resetScoreAndNames() {
     playerXNameInput.value = '';
     playerONameInput.value = '';
@@ -121,11 +120,10 @@ function resetScoreAndNames() {
     resetGame();
 }
 
-// Function to restart the board
 function restartBoard() {
     boardState = ['', '', '', '', '', '', '', '', ''];
     gameActive = true;
-    clearTimeout(timer); // Clear any existing timers
+    clearTimeout(timer); 
     renderBoard();
     messageText.textContent = `Player ${currentPlayer}'s turn`;
     if (timerOption.checked) {
@@ -133,12 +131,11 @@ function restartBoard() {
     }
 }
 
-// Add event listeners to buttons
 resetButton.addEventListener('click', resetGame);
 resetScoreButton.addEventListener('click', resetScoreAndNames);
 restartBoardButton.addEventListener('click', restartBoard);
 
-// Function to render the game board
+
 function renderBoard() {
     board.innerHTML = '';
     for (let i = 0; i < boardState.length; i++) {
@@ -150,7 +147,7 @@ function renderBoard() {
     }
 }
 
-// Initial board rendering
+
 renderBoard();
 if (timerOption.checked) {
     startTimer();
