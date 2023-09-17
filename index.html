@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <h1>Tic-Tac-Toe</h1>
+    <div class="player-names">
+        <input type="text" id="player-x-name" placeholder="Player X's Name">
+        <input type="text" id="player-o-name" placeholder="Player O's Name">
+    </div>
+    <div class="options">
+        <label for="timer-option">Use Timer:</label>
+        <input type="checkbox" id="timer-option">
+    </div>
+    <div class="timers">
+        <p id="timer-x">Timer X: 15s</p>
+        <p id="timer-o">Timer O: 15s</p>
+    </div>
+    <div class="tic-tac-toe-board">
+        <!-- The Tic-Tac-Toe grid will be generated here -->
+    </div>
+    <div class="score">
+        <p id="score-text">Player X: 0 | Player O: 0</p>
+    </div>
+    <div class="message">
+        <p id="message-text">Player X's turn</p>
+    </div>
+    <button id="reset-button">Restart Game</button>
+    <button id="restart-board-button">Restart Board</button>
+    <button id="reset-score-button">Reset Score & Names</button>
+    <p id="credit">Done by Harshavardhan K</p>
+    <script src="script.js"></script>
+</body>
+</html>
